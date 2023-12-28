@@ -2,8 +2,13 @@ const express = require("express")
 const app = express()
 const port = 3000;
 
+const data ={
+    name:"Express API",
+    version:"1.0.0",
+}
+
 app.get("/", (req, res) => {
-    res.send("<h1>Auto scale demo app with NodeJs")
+    res.send(data)
 })
 
 app.listen(port, () => {
