@@ -12,10 +12,10 @@ export NVM_DIR="/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"	
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" 
 #upgrade yum
-sudo yum upgrade
+sudo apt upgrade
 #install git
-sudo yum install git -y
-cd /home/ec2-user
+sudo apt install git -y
+cd /home/ubuntu
 # get source code from githubt
 git clone https://github.com/veasnabig/auto-scaling-nodejs
 #get in project dir
@@ -25,4 +25,4 @@ sudo chmod -R 755 .
 #install node module
 npm install
 # start the app
-node app.js > app.out.log 2> app.err.log < /dev/null &
+node index.js > index.out.log 2> index.err.log < /dev/null &
