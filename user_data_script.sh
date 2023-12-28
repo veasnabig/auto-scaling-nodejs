@@ -1,26 +1,7 @@
-#!/bin/bash -ex
-# output user data logs into a separate file for debugging
-exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
-# download nvm
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
-# source nvm
-. /.nvm/nvm.sh
-# install node
-nvm install node
-#export NVM dir
-export NVM_DIR="/.nvm"	
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"	
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" 
-#upgrade yum
-sudo apt upgrade
-#install git
-sudo apt install git -y
-cd /home/ubuntu
-# get source code from githubt
+sudo apt update
+sudo apt install nodejs
 git clone https://github.com/veasnabig/auto-scaling-nodejs
-#get in project dir
 cd auto-scaling-nodejs
-#give permission
 sudo chmod -R 755 .
 #install node module
 npm install
